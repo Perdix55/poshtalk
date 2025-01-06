@@ -2,7 +2,7 @@ import streamlit as st
 from transformers import pipeline
 
 # Load the language model pipeline for text transformation
-translator = pipeline("text2text-generation", model="gpt-4")  # Replace with a suitable LLM or API
+translator = pipeline("text2text-generation", model="t5-base")  # Using T5 model as an example
 
 # Streamlit App
 st.title("Chat to Posh Old English Converter")
@@ -16,7 +16,7 @@ if st.button("Convert to Posh Old English"):
     if user_input.strip():
         # Process the input using the language model
         transformed_text = translator(f"Translate this modern English sentence to posh old English: {user_input}")
-        output_text = transformed_text[0]['generated_text']  # Adjust based on the LLM's response structure
+        output_text = transformed_text[0]['generated_text']
         
         # Display the original and transformed text
         st.subheader("Transformation Result")
