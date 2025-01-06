@@ -1,8 +1,8 @@
 import streamlit as st
 from transformers import pipeline
 
-# Load the language model pipeline for text transformation
-translator = pipeline("text2text-generation", model="t5-base")  # Using T5 model as an example
+# Load the language model pipeline for text transformation using PyTorch
+translator = pipeline("text2text-generation", model="t5-base", framework="pt")  # Specify PyTorch framework
 
 # Streamlit App
 st.title("Chat to Posh Old English Converter")
